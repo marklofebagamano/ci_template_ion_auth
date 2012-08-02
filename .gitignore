@@ -1,0 +1,6 @@
+.settings/
+.buidpath
+.project*.class
+*.pyc
+*.pyo
+master
