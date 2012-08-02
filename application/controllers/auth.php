@@ -56,7 +56,7 @@ class Auth extends MY_Controller {
 	//log the user in
 	function login()
 	{
-		$this->title = "Login";
+		$this->title = "CI Template Login";
 
 		//validate form input
 		$this->form_validation->set_rules('identity', 'Identity', 'required');
