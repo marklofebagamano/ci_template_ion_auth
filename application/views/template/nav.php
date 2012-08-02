@@ -19,7 +19,7 @@
 <?php if($username): ?>
 <div id="account-setting" class="btn-toolbar">
     <div class="btn-group pull-right">
-        <a href="#username"><button class="btn btn-inverse"><i class="icon-user icon-white"></i>User</button></a>
+        <a href="#username"><button class="btn btn-inverse"><i class="icon-user icon-white"></i><?php echo $username; ?></button></a>
         <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
             <span class="caret"></span>
         </button>

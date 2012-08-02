@@ -8,7 +8,7 @@ class Home extends MY_Controller {
 	{
 		parent::__construct();
 		
-		$this->username = ($this->ion_auth->logged_in()) ? $this->ion_auth->user() : '';
+		$this->username = ($this->ion_auth->logged_in()) ? $this->ion_auth->user()->row()->username : '';
 	}
 
 	public function index()
@@ -23,7 +23,11 @@ class Home extends MY_Controller {
 			redirect('auth/login', 'refresh');
 		}
 
-		$this->_render('pages/home');
+		if ($this->ion_auth->is_admin()) {
+			$this->_render('pages/user-main');
+		} else {
+			$this->_render('pages/home');
+		}
 	}
 
 }
