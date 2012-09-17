@@ -45,27 +45,76 @@
 | the active record class
 */
 
-$active_group = 'default';
+//$active_group = 'default';
+//$active_record = TRUE;
+//
+//$db['default']['hostname'] = 'tunnel.pagodabox.com';
+//$db['default']['username'] = 'easter';
+//$db['default']['password'] = 'B6wJ0bIR';
+//$db['default']['database'] = 'ci_template';
+//$db['default']['port']     = '3306';
+//$db['default']['dbdriver'] = 'mysql';
+//$db['default']['dbprefix'] = '';
+//$db['default']['pconnect'] = TRUE;
+//$db['default']['db_debug'] = TRUE;
+//$db['default']['cache_on'] = FALSE;
+//$db['default']['cachedir'] = '';
+//$db['default']['char_set'] = 'utf8';
+//$db['default']['dbcollat'] = 'utf8_general_ci';
+//$db['default']['swap_pre'] = '';
+//$db['default']['autoinit'] = TRUE;
+//$db['default']['stricton'] = FALSE;
+//
+//die($db['default']['port']);
+
 $active_record = TRUE;
-
-$db['default']['hostname'] = 'tunnel.pagodabox.com';
-$db['default']['username'] = 'easter';
-$db['default']['password'] = 'B6wJ0bIR';
-$db['default']['database'] = 'ci_template';
-$db['default']['port']     = '3306';
-$db['default']['dbdriver'] = 'mysql';
-$db['default']['dbprefix'] = '';
-$db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = TRUE;
-$db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = '';
-$db['default']['char_set'] = 'utf8';
-$db['default']['dbcollat'] = 'utf8_general_ci';
-$db['default']['swap_pre'] = '';
-$db['default']['autoinit'] = TRUE;
-$db['default']['stricton'] = FALSE;
-
-die($db['default']['port']);
+ 
+$db['production']['hostname'] = $_SERVER["DB1_HOST"];
+$db['production']['username'] = $_SERVER["DB1_USER"];
+$db['production']['password'] = $_SERVER["DB1_PASS"];
+$db['production']['database'] = $_SERVER["DB1_NAME"];
+$db['production']['port']     = $_SERVER["DB1_PORT"];
+$db['production']['dbdriver'] = "mysql";
+$db['production']['dbprefix'] = "";
+$db['production']['pconnect'] = TRUE;
+$db['production']['db_debug'] = TRUE;
+$db['production']['cache_on'] = FALSE;
+$db['production']['cachedir'] = "";
+$db['production']['char_set'] = "utf8";
+$db['production']['dbcollat'] = "utf8_general_ci";
+$db['production']['swap_pre'] = '';
+$db['production']['autoinit'] = TRUE;
+$db['production']['stricton'] = FALSE;
+ 
+// production
+$db['development']['hostname'] = "localhost";
+$db['development']['username'] = "root";
+$db['development']['password'] = "";
+$db['development']['database'] = "codeignitor-demo";
+$db['development']['dbdriver'] = "mysql";
+$db['development']['dbprefix'] = "";
+$db['development']['pconnect'] = TRUE;
+$db['development']['db_debug'] = TRUE;
+$db['development']['cache_on'] = FALSE;
+$db['development']['cachedir'] = "";
+$db['development']['char_set'] = "utf8";
+$db['development']['dbcollat'] = "utf8_general_ci";
+$db['development']['swap_pre'] = '';
+$db['development']['autoinit'] = TRUE;
+$db['development']['stricton'] = FALSE;
+ 
+// Switch active_group based on environment
+switch (ENVIRONMENT) {
+    case 'production':
+        $active_group = 'production';
+    break;
+ 
+    // add additional cases for more environments
+ 
+    default:
+        $active_group = 'development';
+    break;
+}
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
