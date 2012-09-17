@@ -1,9 +1,12 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 
-$config['site_title'] = 'title';
-$config['site_description'] = 'description';
-$config['site_author'] = 'arny';
-$config['site_keywords'] = 'key1, key2';
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+$config['site_title'] = 'CI Template with Ion_Auth';
+$config['site_description'] = 'This website is a testing for integrating html5boilerplate with codeigniter and an application of Ion_Auth';
+$config['site_author'] = 'Mark Lofe Bagamano';
+$config['site_keywords'] = 'codeigniter, html5boilerplate, twitter-bootstrap, ion_auth';
 
 
 /* End of file custom.php */

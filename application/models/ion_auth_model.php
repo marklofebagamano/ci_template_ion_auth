@@ -829,6 +829,16 @@ class Ion_auth_model extends CI_Model
 		}
 
 		$this->trigger_events('extra_where');
+                
+                //checks if the user used username or email to login
+                // Edited by Mark Lofe Bagamano
+                if ($this->username_check($identity)) {
+                    $this->config->set_item('identity', 'username');
+                    $this->identity_column = 'username';
+                } else if ($this->email_check($identity)) {
+                    $this->config->set_item('identity', 'email');
+                    $this->identity_column = 'email';
+                }
 
 		$query = $this->db->select($this->identity_column . ', username, email, id, password, active, last_login')
 		                  ->where($this->identity_column, $this->db->escape_str($identity))

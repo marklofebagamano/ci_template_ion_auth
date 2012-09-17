@@ -52,8 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('ion_auth', 'session', 'form_validation');
-
+$autoload['libraries'] = array('ion_auth', 'session', 'form_validation', 'email');
 
 /*
 | -------------------------------------------------------------------
