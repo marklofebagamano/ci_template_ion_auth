@@ -52,6 +52,7 @@ $db['default']['hostname'] = 'tunnel.pagodabox.com';
 $db['default']['username'] = 'easter';
 $db['default']['password'] = 'B6wJ0bIR';
 $db['default']['database'] = 'ci_template';
+$db['default']['port']     = '3306';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
