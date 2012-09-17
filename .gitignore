@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 */config/development
 */logs/log-*.php
 */logs/!index.html
 */cache/*
 */cache/!index.html
+=======
+*/config/development
+*/logs/log-*.php
+*/logs/!index.html
+*/cache/*
+*/cache/!index.html
+>>>>>>> branch 'master' of https://github.com/marklofebagamano/ci_template_ion_auth.git
