@@ -65,6 +65,7 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+die($db['default']['port']);
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
