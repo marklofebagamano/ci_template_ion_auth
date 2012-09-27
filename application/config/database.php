@@ -67,14 +67,27 @@
 //
 //die($db['default']['port']);
 
-$active_record = TRUE;
+// Switch active_group based on environment
+switch (ENVIRONMENT) {
+    case 'production':
+        $active_group = 'production';
+    break;
  
-$db['production']['hostname'] = $_SERVER["DB1_HOST"];
-$db['production']['username'] = $_SERVER["DB1_USER"];
-$db['production']['password'] = $_SERVER["DB1_PASS"];
-$db['production']['database'] = $_SERVER["DB1_NAME"];
-$db['production']['port']     = $_SERVER["DB1_PORT"];
-$db['production']['dbdriver'] = "mysql";
+    // add additional cases for more environments
+ 
+    default:
+        $active_group = 'development';
+    break;
+}
+
+$active_record = TRUE;
+$localhost = "(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))) (CONNECT_DATA =(SERVICE_NAME = xe)))";
+ 
+$db['production']['hostname'] = $localhost;
+$db['production']['username'] = "ci_template";
+$db['production']['password'] = "ci_template";
+$db['production']['database'] = "ci_template";
+$db['production']['dbdriver'] = "oci8";
 $db['production']['dbprefix'] = "";
 $db['production']['pconnect'] = TRUE;
 $db['production']['db_debug'] = TRUE;
@@ -89,8 +102,8 @@ $db['production']['stricton'] = FALSE;
 // production
 $db['development']['hostname'] = "localhost";
 $db['development']['username'] = "root";
-$db['development']['password'] = "";
-$db['development']['database'] = "codeignitor-demo";
+$db['development']['password'] = "Cyrene28";
+$db['development']['database'] = "ci_template";
 $db['development']['dbdriver'] = "mysql";
 $db['development']['dbprefix'] = "";
 $db['development']['pconnect'] = TRUE;
@@ -102,19 +115,6 @@ $db['development']['dbcollat'] = "utf8_general_ci";
 $db['development']['swap_pre'] = '';
 $db['development']['autoinit'] = TRUE;
 $db['development']['stricton'] = FALSE;
- 
-// Switch active_group based on environment
-switch (ENVIRONMENT) {
-    case 'production':
-        $active_group = 'production';
-    break;
- 
-    // add additional cases for more environments
- 
-    default:
-        $active_group = 'development';
-    break;
-}
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */

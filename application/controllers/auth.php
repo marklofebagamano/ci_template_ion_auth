@@ -31,7 +31,8 @@ class Auth extends MY_Controller
             $this->_render('auth/login');
         } elseif (!$this->ion_auth->is_admin()) {
             //redirect them to the home page because they must be an administrator to view this
-            redirect($this->config->item('base_url'), 'refresh');
+//            redirect($this->config->item('base_url'), 'refresh');
+            redirect(base_url(), 'refresh');
         } else {
             //set the flash data error message if there is one
             $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
@@ -71,8 +72,8 @@ class Auth extends MY_Controller
                 //if the login is successful
                 //redirect them back to the home page
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
-                 redirect($this->config->item('base_url'), 'refresh');
-//                header('Location: http://marklofe11.localhost.com/ci_template_auth/');
+//                 redirect($this->config->item('base_url'), 'refresh');
+                header('Location: http://localhost/ci_template_auth/');
             } else {
                 //if the login was un-successful
                 //redirect them back to the login page
@@ -94,7 +95,7 @@ class Auth extends MY_Controller
                 'type' => 'password',
             );
 
-            // $this->load->view('auth/login', $this->data);
+//             $this->load->view('auth/login', $this->data);
             $this->_render('auth/login');
         }
     }
@@ -109,7 +110,7 @@ class Auth extends MY_Controller
 
         //redirect them back to the page they came from
         // redirect('auth/login', 'refresh');
-        header('Location: http://localhost.com/ci_template_auth/');
+        header('Location: http://localhost/ci_template_auth/');
     }
 
     //change password
@@ -474,7 +475,7 @@ class Auth extends MY_Controller
         $this->form_validation->set_rules('phone1', 'First Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
         $this->form_validation->set_rules('phone2', 'Second Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
         $this->form_validation->set_rules('phone3', 'Third Part of Phone', 'required|xss_clean|min_length[4]|max_length[4]');
-        $this->form_validation->set_rules('company', 'Company Name', 'required|xss_clean');
+        $this->form_validation->set_rules('company', 'Company Name', 'xss_clean');
 
         if (isset($_POST) && !empty($_POST)) {
             // do we have a valid request?

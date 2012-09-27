@@ -26,7 +26,10 @@
 	      
 	      <p><a href="forgot_password">Forgot your password?</a></p>        
 	        
-	      <p><?php echo form_submit(array('type' => 'submit', 'class' => 'btn'), 'Login');?></p>
+	      <p>
+                  <?php echo form_submit(array('type' => 'submit', 'class' => 'btn'), 'Login');?>
+                  <a href="/ci_template_auth/auth/create_user"><?php echo form_submit(array('type' => 'button', 'class' => 'btn btn-info'), 'Sign Up');?></a>
+              </p>
 	        
 	    <?php echo form_close();?>
 	</div>
